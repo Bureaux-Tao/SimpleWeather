@@ -12,5 +12,5 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">作者博客</string>
-    <string name="menu_send">开源作品</string>
+    <string name="menu_send">源码</string>
 </resources>
