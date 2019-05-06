@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".item_home"
+    android:orientation="vertical"
+    android:layout_margin="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:textColor="#FFF"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="3dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weather"
+        android:textColor="#FFF"
+        android:textSize="22dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/poss"
+        android:textColor="#FFF"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="3dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tpt"
+        android:textColor="#FFF"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="3dp"/>
+
+</android.support.v7.widget.LinearLayoutCompat>
