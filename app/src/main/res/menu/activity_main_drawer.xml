@@ -7,11 +7,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/icons8_line_chart"
+            android:icon="@mipmap/icons8_line_chart"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/icons8_moon"
+            android:icon="@mipmap/icons8_moon"
             android:title="@string/menu_gallery" />
 
     </group>
@@ -20,11 +20,11 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/icons8_blog"
+                android:icon="@mipmap/icons8_blog"
                 android:title="@string/menu_share" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/icons8_github"
+                android:icon="@mipmap/icons8_github"
                 android:title="@string/menu_send" />
         </menu>
     </item>

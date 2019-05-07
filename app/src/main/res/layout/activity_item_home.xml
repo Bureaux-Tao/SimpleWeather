@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:src="@drawable/icons8_error"
+        android:src="@mipmap/icons8_error"
         android:id="@+id/weather"
         android:textColor="#FFF"
         android:layout_gravity="center_horizontal"

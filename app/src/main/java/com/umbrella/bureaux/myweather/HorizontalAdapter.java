@@ -50,23 +50,23 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
         holder.time.setText(mList.get(position).getTime().substring(11,16));
         String a=mList.get(position).getCondTxt();
         if (a.equals("多云")) {
-            holder.weather.setImageResource(R.drawable.icons8_partly_cloudy_day);
+            holder.weather.setImageResource(R.mipmap.icons8_partly_cloudy_day);
         } else if (a.equals("晴")) {
-            holder.weather.setImageResource(R.drawable.icons8_sun);
+            holder.weather.setImageResource(R.mipmap.icons8_sun);
         } else if (a.equals("阴")) {
-            holder.weather.setImageResource(R.drawable.icons8_cloud);
+            holder.weather.setImageResource(R.mipmap.icons8_cloud);
         } else if (a.contains("雨")) {
-            holder.weather.setImageResource(R.drawable.icons8_rainy_weather);
+            holder.weather.setImageResource(R.mipmap.icons8_rainy_weather);
         } else if (a.contains("雾")) {
-            holder.weather.setImageResource(R.drawable.icons8_fog_day);
+            holder.weather.setImageResource(R.mipmap.icons8_fog_day);
         } else if (a.contains("雪")) {
-            holder.weather.setImageResource(R.drawable.icons8_snow_storm);
+            holder.weather.setImageResource(R.mipmap.icons8_snow_storm);
         } else if (a.contains("雷")) {
-            holder.weather.setImageResource(R.drawable.icons8_storm);
+            holder.weather.setImageResource(R.mipmap.icons8_storm);
         } else if (a.contains("冰雹")) {
-            holder.weather.setImageResource(R.drawable.icons8_hail);
+            holder.weather.setImageResource(R.mipmap.icons8_hail);
         } else {
-            holder.weather.setImageResource(R.drawable.icons8_question_shield);
+            holder.weather.setImageResource(R.mipmap.icons8_question_shield);
         }
 //        holder.weather.setText(mList.get(position).getCondTxt());
         holder.poss.setText("降水:"+mList.get(position).getPop()+'%');

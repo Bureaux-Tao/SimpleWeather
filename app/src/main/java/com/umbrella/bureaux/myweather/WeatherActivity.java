@@ -133,23 +133,23 @@ public class WeatherActivity extends AppCompatActivity {
                 String a = dataObject.getNow().getCond_txt();
                 int b = Integer.parseInt(dataObject.getNow().getTmp());
                 if (a.equals("多云")) {
-                    imageView.setImageResource(R.drawable.icons8_partly_cloudy_day);
+                    imageView.setImageResource(R.mipmap.icons8_partly_cloudy_day);
                 } else if (a.equals("晴")) {
-                    imageView.setImageResource(R.drawable.icons8_sun);
+                    imageView.setImageResource(R.mipmap.icons8_sun);
                 } else if (a.equals("阴")) {
-                    imageView.setImageResource(R.drawable.icons8_cloud);
+                    imageView.setImageResource(R.mipmap.icons8_cloud);
                 } else if (a.contains("雨")) {
-                    imageView.setImageResource(R.drawable.icons8_rainy_weather);
+                    imageView.setImageResource(R.mipmap.icons8_rainy_weather);
                 } else if (a.contains("雾")) {
-                    imageView.setImageResource(R.drawable.icons8_fog_day);
+                    imageView.setImageResource(R.mipmap.icons8_fog_day);
                 } else if (a.contains("雪")) {
-                    imageView.setImageResource(R.drawable.icons8_snow_storm);
+                    imageView.setImageResource(R.mipmap.icons8_snow_storm);
                 } else if (a.contains("雷")) {
-                    imageView.setImageResource(R.drawable.icons8_storm);
+                    imageView.setImageResource(R.mipmap.icons8_storm);
                 } else if (a.contains("冰雹")) {
-                    imageView.setImageResource(R.drawable.icons8_hail);
+                    imageView.setImageResource(R.mipmap.icons8_hail);
                 } else {
-                    imageView.setImageResource(R.drawable.icons8_question_shield);
+                    imageView.setImageResource(R.mipmap.icons8_question_shield);
                 }
 
                 if (a.equals("多云") && (b >= 18 && b <= 30)) {
@@ -370,7 +370,7 @@ public class WeatherActivity extends AppCompatActivity {
          */
         final AlertDialog.Builder normalDialog =
                 new AlertDialog.Builder(this);
-        normalDialog.setIcon(R.drawable.icons8_error);
+        normalDialog.setIcon(R.mipmap.icons8_error);
         normalDialog.setTitle("没有网络");
         normalDialog.setMessage("获取资源失败\n"+e);
         normalDialog.setPositiveButton("确定",

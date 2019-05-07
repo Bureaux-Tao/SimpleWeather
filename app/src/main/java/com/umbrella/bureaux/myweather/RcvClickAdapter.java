@@ -96,23 +96,23 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
                 String a = now.getNow().getCond_txt();
                 int b = Integer.parseInt(now.getNow().getTmp());
                 if (a.equals("多云")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_partly_cloudy_day);
+                    holder.imageView.setImageResource(R.mipmap.icons8_partly_cloudy_day);
                 } else if (a.equals("晴")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_sun);
+                    holder.imageView.setImageResource(R.mipmap.icons8_sun);
                 } else if (a.equals("阴")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_cloud);
+                    holder.imageView.setImageResource(R.mipmap.icons8_cloud);
                 } else if (a.contains("雨")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_rainy_weather);
+                    holder.imageView.setImageResource(R.mipmap.icons8_rainy_weather);
                 } else if (a.contains("雾")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_fog_day);
+                    holder.imageView.setImageResource(R.mipmap.icons8_fog_day);
                 } else if (a.contains("雪")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_snow_storm);
+                    holder.imageView.setImageResource(R.mipmap.icons8_snow_storm);
                 } else if (a.contains("雷")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_storm);
+                    holder.imageView.setImageResource(R.mipmap.icons8_storm);
                 } else if (a.contains("冰雹")) {
-                    holder.imageView.setImageResource(R.drawable.icons8_hail);
+                    holder.imageView.setImageResource(R.mipmap.icons8_hail);
                 } else {
-                    holder.imageView.setImageResource(R.drawable.icons8_question_shield);
+                    holder.imageView.setImageResource(R.mipmap.icons8_question_shield);
                 }
 
                 holder.over_view_tmp.setText(now.getNow().getTmp() + "°");

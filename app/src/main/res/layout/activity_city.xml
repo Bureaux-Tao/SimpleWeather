@@ -29,7 +29,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="3dp"
-                android:src="@drawable/icons8_error" />
+                android:src="@mipmap/icons8_error" />
 
             <TextView
                 android:id="@+id/CityName"

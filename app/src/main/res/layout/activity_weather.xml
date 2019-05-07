@@ -77,7 +77,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/icons8_error" />
+                        android:src="@mipmap/icons8_error" />
 
                 </LinearLayout>
 
