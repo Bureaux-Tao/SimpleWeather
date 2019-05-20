@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/Pure_White"
+    tools:targetApi="lollipop">
+    <item>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#dd1aad19"/>
+    <solid android:color="#19AD43"/>
     <corners android:topLeftRadius="5dp"
         android:topRightRadius="5dp"
         android:bottomLeftRadius="5dp"
@@ -8,3 +13,5 @@
     <!--//或者将这段换成下面这个也可以达到效果-->
     <!--<corners android:radius="8dp"/>-->
 </shape>
+    </item>
+</ripple>

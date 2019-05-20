@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="Cornflower_Blue">#5d9bf6</color>
+    <color name="Pure_White">#FFFFFF</color>
+    <color name="Gallery">#efefef</color>
 </resources>

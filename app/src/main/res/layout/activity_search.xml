@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#efefef"
+    android:id="@+id/bcg">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SearchActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#008877"
+                android:gravity="center"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:iconifiedByDefault="false"
+                    android:queryHint="输入城市名称,英文或拼音"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/corners_bg"
+                    android:imeOptions="normal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/licAtPre">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="15dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/icons8_worldwide_location"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当前位置: 搜寻中..."
+                        android:textSize="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/licAtPreText"
+                        android:layout_gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_height="1px"
+                    android:layout_width="match_parent"
+                    android:background="@color/cardview_dark_background"
+                    android:id="@+id/fgx"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="国内热门"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15dp"
+                    android:id="@+id/t1"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="北京"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Beijing"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="上海"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Shanghai"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="广州"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Guangzhou"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="香港"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Hongkong"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="深圳"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Shenzheng"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="台北"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Taipei"/>
+
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="杭州"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Hangzhou"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="苏州"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Suzhou"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="澳门"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Macao"/>
+
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="国际热门"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15dp"
+                    android:id="@+id/t2"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="纽约"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/NewYork"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="伦敦"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/London"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="巴黎"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Paris"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="悉尼"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Sydney"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="东京"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Tokyo"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="迪拜"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Dubai"/>
+
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="30dp">
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="开罗"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Cario"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="里约"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Rio"/>
+
+                    <Button
+                        android:layout_width="95dp"
+                        android:layout_height="40dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="曼谷"
+                        android:textSize="20dp"
+                        android:background="@drawable/corners_bg"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/Bankok"/>
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/father">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RVCITY">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+</ScrollView>

@@ -32,6 +32,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.zaaach.citypicker.CityPickerActivity;
 
 import java.io.BufferedReader;
@@ -41,14 +45,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import interfaces.heweather.com.interfacesmodule.bean.Lang;
+import interfaces.heweather.com.interfacesmodule.bean.search.Search;
 import interfaces.heweather.com.interfacesmodule.view.HeConfig;
+import interfaces.heweather.com.interfacesmodule.view.HeWeather;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RcvClickAdapter.OnItemClickListener {
     private View view;
 
     private String TAG = "HEtest";
-    private static final int REQUEST_CODE_PICK_CITY = 0;
     private static final int LOCATION_CODE = 1;
     private LocationManager lm;//【位置管理】
     private List<CityList> mList = new ArrayList<>();
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         view = findViewById(R.id.page);
         Log.i(TAG, "time: " + hour);
         if (hour >= 6 && hour <= 18) {
-            view.setBackgroundColor(Color.rgb(255, 255, 255));
+            view.setBackgroundColor(Color.rgb(239, 239, 239));
         } else {
             view.setBackgroundColor(Color.rgb(29, 33, 41));
         }
@@ -87,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("stored_city", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         HeConfig.init("HE1905022236021729", "196e15a0389445cabe23cb094344d456");
-        quanxian();
+//        quanxian();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -96,8 +102,15 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent(MainActivity.this, CityPickerActivity.class),
-                        REQUEST_CODE_PICK_CITY);
+                if(mList.size()<=30) {
+                    Intent intent = new Intent();
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    intent.setClass(MainActivity.this, SearchActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this,  "您至多可以添加30个城市", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
         /****************浮动按钮点击事件*****************/
@@ -111,8 +124,8 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        initData();
-        initView();
+//        initData();
+//        initView();
     }
 
     @Override
@@ -181,80 +194,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
-    //重写onActivityResult方法
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK) {
-            if (data != null) {
-                String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
-                Log.i(TAG, "city: " + "当前选择：" + city);
-                if (!stored_city.contains(city)) {
-                    stored_city.add(city);
-                    initView();
-                    Log.i(TAG, "onActivityResult: " + stored_city);
-                    CityList cityList = new CityList();
-                    cityList.setCity(city);
-                    mList.add(cityList);
-                }
-                //新建一个显式意图，第一个参数为当前Activity类对象，第二个参数为你要打开的Activity类
-                Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-
-                //用Bundle携带数据
-                Bundle bundle = new Bundle();
-                //传递name参数为tinyphp
-                bundle.putString("city", city);
-                intent.putExtras(bundle);
-
-                startActivity(intent);
-            }
-        }
-    }
-
-    public void quanxian() {
-        lm = (LocationManager) MainActivity.this.getSystemService(MainActivity.this.LOCATION_SERVICE);
-        boolean ok = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if (ok) {//开了定位服务
-            if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                Log.e("BRG", "没有权限");
-                // 没有权限，申请权限。
-                // 申请授权。
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_CODE);
-//                        Toast.makeText(getActivity(), "没有权限", Toast.LENGTH_SHORT).show();
-
-            } else {
-
-                // 有权限了，去放肆吧。
-
-            }
-        } else {
-            Log.e("BRG", "系统检测到未开启GPS定位服务");
-            Toast.makeText(MainActivity.this, "系统检测到未开启GPS定位服务", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent();
-            intent.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivityForResult(intent, 1315);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case LOCATION_CODE: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // 权限被用户同意。
-
-                } else {
-                    // 权限被用户拒绝了。
-                    Toast.makeText(MainActivity.this, "定位权限被禁止，相关地图功能无法使用！", Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-    }
-
     private void initData() {
-
+        mList.clear();
         Set res = new HashSet();
         stored_city = sharedPreferences.getStringSet("stored_city", res);
         Log.i(TAG, "ontip: " + stored_city);
@@ -266,8 +207,10 @@ public class MainActivity extends AppCompatActivity
             mList.add(cityList);
         }
         if (mList.size() == 0) {
-            startActivityForResult(new Intent(MainActivity.this, CityPickerActivity.class),
-                    REQUEST_CODE_PICK_CITY);
+            Intent intent = new Intent();
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.setClass(MainActivity.this, SearchActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -285,12 +228,26 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(CityList content) {
-        Toast.makeText(this, content.getCity() + "已被移除", Toast.LENGTH_SHORT).show();
+        HeWeather.getSearch(MainActivity.this, content.getCity(),"world",20 , Lang.CHINESE_SIMPLIFIED, new HeWeather.OnResultSearchBeansListener(){
+
+            @Override
+            public void onError(Throwable throwable) {
+                Toast.makeText(MainActivity.this, "发送未知错误", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSuccess(Search search) {
+                Toast.makeText(MainActivity.this, search.getBasic().get(0).getLocation() + "已被移除", Toast.LENGTH_SHORT).show();
+            }
+        });
         mList.remove(mList.indexOf(content));
         stored_city.remove(content.getCity());
         if (mList.size() == 0) {
-            startActivityForResult(new Intent(MainActivity.this, CityPickerActivity.class),
-                    REQUEST_CODE_PICK_CITY);
+
+            Intent intent = new Intent();
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.setClass(MainActivity.this, SearchActivity.class);
+            startActivity(intent);
         }
         initView();
 
@@ -333,5 +290,12 @@ public class MainActivity extends AppCompatActivity
             strLogcatInfo = strLogcatInfo + ex + "\n";
         }
         return strLogcatInfo;
+    }
+
+    @Override
+    protected void onResume() {
+        initData();
+        initView();
+        super.onResume();
     }
 }

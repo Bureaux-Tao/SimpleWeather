@@ -9,11 +9,11 @@
     <LinearLayout
         android:id="@+id/CityItem"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="7dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="6dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/circle"
         android:elevation="5dp"
         android:gravity="center_vertical"
@@ -28,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="3dp"
                 android:src="@mipmap/icons8_error" />
@@ -40,8 +40,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="城市"
+                android:layout_marginTop="2dp"
                 android:textColor="#FFF"
-                android:textSize="30dp" />
+                android:textSize="25dp" />
         </LinearLayout>
 
         <TextView
@@ -52,7 +53,8 @@
             android:layout_marginRight="25dp"
             android:text="0°C"
             android:textColor="#FFF"
-            android:textSize="30dp" />
+            android:layout_marginTop="2dp"
+            android:textSize="25dp" />
     </LinearLayout>
 
 

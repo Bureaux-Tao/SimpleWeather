@@ -49,7 +49,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
     public void onBindViewHolder(@NonNull HorizontalViewHolder holder, int position) {
         holder.time.setText(mList.get(position).getTime().substring(11,16));
         String a=mList.get(position).getCondTxt();
-        if (a.equals("多云")) {
+        if (a.contains("云")) {
             holder.weather.setImageResource(R.mipmap.icons8_partly_cloudy_day);
         } else if (a.equals("晴")) {
             holder.weather.setImageResource(R.mipmap.icons8_sun);

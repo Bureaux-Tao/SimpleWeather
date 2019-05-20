@@ -105,7 +105,7 @@
                             android:id="@+id/weatherTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="30dp"
                             android:text="未知"
                             android:textColor="#FFF"
                             android:textSize="15dp" />
@@ -131,7 +131,7 @@
                             android:id="@+id/visNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="30dp"
                             android:text="00Km"
                             android:textSize="15dp" />
 
@@ -148,16 +148,16 @@
                             android:id="@+id/HumTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="相对湿度"
+                            android:text="降水量"
                             android:textColor="#FFF"
                             android:textSize="15dp" />
 
                         <TextView
-                            android:id="@+id/HumNum"
+                            android:id="@+id/Pcpn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
-                            android:text="00"
+                            android:text="00 mm"
                             android:textSize="15dp" />
 
                     </LinearLayout>
@@ -169,7 +169,7 @@
                     android:layout_height="match_parent"
                     android:gravity="bottom"
                     android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="13dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -335,7 +335,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="7dp"
-            android:background="#ffd301"
+            android:background="#f5b915"
             android:elevation="5dp"
             android:orientation="vertical"
             tools:context=".WeatherActivity">
@@ -378,7 +378,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -453,17 +452,17 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:text="降水量"
+                        android:text="相对湿度"
                         android:textColor="#FFF"
                         android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/Pcpn"
+                        android:id="@+id/HumNum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginBottom="10dp"
-                        android:text="00mm"
+                        android:text="00"
                         android:textColor="#FFF"
                         android:textSize="25dp" />
                 </LinearLayout>
@@ -534,7 +533,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:layout_marginBottom="14dp"
             android:background="#fe326e"
             android:elevation="5dp"
             android:orientation="vertical"
@@ -556,6 +554,97 @@
                 android:layout_height="330dp">
 
             </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#ccbf7f"
+            android:orientation="vertical"
+            android:layout_marginTop="14dp"
+            android:id="@+id/AirQuality">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="空气质量"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ccbf7f"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="空气质量指数"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/Aqi"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="40dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ccbf7f"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="空气质量情况"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无数据"
+                    android:id="@+id/Qlty"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="40dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ccbf7f"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="主要的污染物"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无污染物"
+                    android:id="@+id/Main"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="40dp"/>
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v7.widget.LinearLayoutCompat>
 </ScrollView>

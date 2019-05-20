@@ -59,6 +59,7 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
     @Override
     public void onBindViewHolder(@NonNull final RcvClickViewHolder holder, int position) {
         final CityList content = mList.get(position);
+        String code=content.getCity();
 
         switch (position % 7) {
             case 0:
@@ -93,6 +94,8 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
 
             @Override
             public void onSuccess(Now now) {
+                String cityName=now.getBasic().getLocation();
+                holder.CityName.setText(cityName);
                 String a = now.getNow().getCond_txt();
                 int b = Integer.parseInt(now.getNow().getTmp());
                 if (a.equals("多云")) {
@@ -118,7 +121,7 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
                 holder.over_view_tmp.setText(now.getNow().getTmp() + "°");
             }
         });
-        holder.CityName.setText(content.getCity());
+
 
         // 第一种写法：直接在 Adapter 里写
         holder.itemView.setOnClickListener(new View.OnClickListener() {

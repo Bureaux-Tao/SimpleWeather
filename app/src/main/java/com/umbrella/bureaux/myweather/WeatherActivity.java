@@ -11,7 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -30,6 +32,7 @@ import java.util.regex.Pattern;
 import interfaces.heweather.com.interfacesmodule.bean.Code;
 import interfaces.heweather.com.interfacesmodule.bean.Lang;
 import interfaces.heweather.com.interfacesmodule.bean.Unit;
+import interfaces.heweather.com.interfacesmodule.bean.air.now.AirNow;
 import interfaces.heweather.com.interfacesmodule.bean.weather.forecast.Forecast;
 import interfaces.heweather.com.interfacesmodule.bean.weather.hourly.Hourly;
 import interfaces.heweather.com.interfacesmodule.bean.weather.now.Now;
@@ -71,7 +74,7 @@ public class WeatherActivity extends AppCompatActivity {
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        setTitle(city);
+
 
         //设置暗色主题
         Time t = new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料
@@ -106,6 +109,10 @@ public class WeatherActivity extends AppCompatActivity {
         final TextView getCloud = (TextView) findViewById(R.id.getCloud);
         final TextView sunrise = (TextView) findViewById(R.id.sunrise);
         final TextView sunsite = (TextView) findViewById(R.id.sunsite);
+        final LinearLayout AirQuality=(LinearLayout)findViewById(R.id.AirQuality);
+        final TextView Aqi=(TextView)findViewById(R.id.Aqi);
+        final TextView Qlty=(TextView)findViewById(R.id.Qlty);
+        final TextView MAin=(TextView)findViewById(R.id.Main);
 
 
         /**
@@ -132,7 +139,11 @@ public class WeatherActivity extends AppCompatActivity {
                 //下面开始放数据
                 String a = dataObject.getNow().getCond_txt();
                 int b = Integer.parseInt(dataObject.getNow().getTmp());
-                if (a.equals("多云")) {
+                String cityName=dataObject.getBasic().getLocation();
+                city=cityName;
+                setTitle(city);
+                Log.i(TAG, "onSuccess1: "+a);
+                if (a.contains("云")) {
                     imageView.setImageResource(R.mipmap.icons8_partly_cloudy_day);
                 } else if (a.equals("晴")) {
                     imageView.setImageResource(R.mipmap.icons8_sun);
@@ -184,7 +195,7 @@ public class WeatherActivity extends AppCompatActivity {
                 windir.setText(dataObject.getNow().getWind_dir());
                 windspd.setText(dataObject.getNow().getWind_spd() + " Km/h");
                 windsc.setText(dataObject.getNow().getWind_sc() + " 级");
-                Pcpn.setText(dataObject.getNow().getPcpn() + " mm");
+                Pcpn.setText(dataObject.getNow().getPcpn() + "mm");
                 Press.setText(dataObject.getNow().getPres() + " Pa");
                 getCloud.setText(dataObject.getNow().getCloud());
 
@@ -295,6 +306,36 @@ public class WeatherActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Log.i(TAG, "teest: "+city);
+        if(city.substring(0,2).equals("CN")) {
+            AirQuality.setVisibility(View.VISIBLE);
+            Log.i(TAG, "teest: "+city.substring(0,2));
+            HeWeather.getAirNow(WeatherActivity.this, city, new HeWeather.OnResultAirNowBeansListener() {
+
+                @Override
+                public void onError(Throwable throwable) {
+
+                }
+
+                @Override
+                public void onSuccess(AirNow airNow) {
+//                    String strByJson = new Gson().toJson(airNow);
+                    Log.i(TAG, "getAirNow: "+airNow.getAir_now_city().getAqi());
+                    Log.i(TAG, "getAirNow: "+airNow.getAir_now_city().getMain());
+                    Log.i(TAG, "getAirNow: "+airNow.getAir_now_city().getQlty());
+                    Aqi.setText(airNow.getAir_now_city().getAqi());
+                    if(airNow.getAir_now_city().getMain().equals("-")) {
+                        MAin.setText("无污染物");
+                    } else {
+                        MAin.setText(airNow.getAir_now_city().getMain());
+                    }
+                    Qlty.setText(airNow.getAir_now_city().getQlty());
+                }
+            });
+        } else {
+            AirQuality.setVisibility(View.GONE);
+        }
 
     }
 
