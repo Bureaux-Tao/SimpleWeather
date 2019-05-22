@@ -1,19 +1,13 @@
 package com.umbrella.bureaux.myweather;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.Time;
@@ -31,12 +25,6 @@ import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.zaaach.citypicker.CityPickerActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -93,7 +81,6 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("stored_city", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         HeConfig.init("HE1905022236021729", "196e15a0389445cabe23cb094344d456");
-//        quanxian();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -123,9 +110,6 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
-//        initData();
-//        initView();
     }
 
     @Override

@@ -98,7 +98,7 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
                 holder.CityName.setText(cityName);
                 String a = now.getNow().getCond_txt();
                 int b = Integer.parseInt(now.getNow().getTmp());
-                if (a.equals("多云")) {
+                if (a.contains("云")) {
                     holder.imageView.setImageResource(R.mipmap.icons8_partly_cloudy_day);
                 } else if (a.equals("晴")) {
                     holder.imageView.setImageResource(R.mipmap.icons8_sun);
@@ -122,12 +122,9 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
             }
         });
 
-
-        // 第一种写法：直接在 Adapter 里写
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(mContext, "你点击的是：" + content.getCity(), Toast.LENGTH_SHORT).show();
                 //新建一个显式意图，第一个参数为当前Activity类对象，第二个参数为你要打开的Activity类
                 Intent intent = new Intent(mContext, WeatherActivity.class);
 
@@ -140,14 +137,6 @@ public class RcvClickAdapter extends RecyclerView.Adapter<RcvClickAdapter.RcvCli
             }
         });
 
-        // 第二种写法：将点击事件传到 Activity 里去写
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.i("huahua", "单击");
-//                mListener.onItemClick(content);
-//            }
-//        });
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

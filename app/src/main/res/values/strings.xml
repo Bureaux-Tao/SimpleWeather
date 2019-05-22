@@ -3,7 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">极简天气</string>
-    <string name="nav_header_subtitle">V1.2.1</string>
+    <string name="nav_header_subtitle">V1.2.2</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">汇报问题</string>
 

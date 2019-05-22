@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.LocationManager;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,14 +15,10 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -36,7 +29,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.zaaach.citypicker.CityPickerActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -46,7 +38,6 @@ import java.util.Set;
 
 import interfaces.heweather.com.interfacesmodule.bean.Lang;
 import interfaces.heweather.com.interfacesmodule.bean.search.Search;
-import interfaces.heweather.com.interfacesmodule.bean.weather.now.Now;
 import interfaces.heweather.com.interfacesmodule.view.HeWeather;
 
 public class SearchActivity extends AppCompatActivity implements SearchClickAdapter.OnSearchClickListener{
@@ -61,8 +52,6 @@ public class SearchActivity extends AppCompatActivity implements SearchClickAdap
     private LinearLayout licAtPre;
     private TextView licAtPreText;
     private String NowCity;
-    private static final int LOCATION_CODE = 1;
-    private LocationManager lm;//【位置管理】
     private ScrollView scrollView;
     private Button Beijing;
     private Button Shanghai;
@@ -162,7 +151,7 @@ public class SearchActivity extends AppCompatActivity implements SearchClickAdap
                         //传递name参数为tinyphp
                         bundle.putString("city", CID);
                         intent.putExtras(bundle);
-                        Store(NowCity);
+                        Store(CID);
                         SearchActivity.this.finish();
                         startActivity(intent);
                     }
@@ -247,7 +236,6 @@ public class SearchActivity extends AppCompatActivity implements SearchClickAdap
 
     @Override
     public void onItemClick1(CitySearchItemClass content) {
-//        Toast.makeText(this, "你点击的是：" + content.getCid(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(SearchActivity.this, WeatherActivity.class);
 
         //用Bundle携带数据
@@ -555,5 +543,4 @@ public class SearchActivity extends AppCompatActivity implements SearchClickAdap
         Bangkok.setBackgroundResource(R.drawable.bg_dark);
         Bangkok.setTextColor(Color.rgb(255, 255, 255));
     }
-
 }

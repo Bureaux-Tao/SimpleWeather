@@ -163,7 +163,7 @@ public class WeatherActivity extends AppCompatActivity {
                     imageView.setImageResource(R.mipmap.icons8_question_shield);
                 }
 
-                if (a.equals("多云") && (b >= 18 && b <= 30)) {
+                if (a.contains("云") && (b >= 18 && b <= 30)) {
                     Feel.setText("较舒适");
                 } else if (a.equals("阴")) {
                     Feel.setText("比较闷");
